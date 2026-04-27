@@ -1,0 +1,34 @@
+[
+  {
+    "store": "نون",
+    "code": "NOON15",
+    "discount": "15% على مختارات",
+    "expiry": "2026-06-30",
+    "url": "https://example.com/coupons/noon",
+    "note": "قد يطبق حد أدنى للطلب"
+  },
+  {
+    "store": "أمازون السعودية",
+    "code": "AMZ10",
+    "discount": "10% حتى 100 ر.س",
+    "expiry": "2026-05-20",
+    "url": "https://example.com/coupons/amazon-sa",
+    "note": "ساري على فئات محددة"
+  },
+  {
+    "store": "جرير",
+    "code": "JARIR50",
+    "discount": "50 ر.س على إلكترونيات مختارة",
+    "expiry": "2026-05-15",
+    "url": "https://example.com/coupons/jarir",
+    "note": "مرة واحدة لكل مستخدم"
+  },
+  {
+    "store": "إكسترا",
+    "code": "EXTRA8",
+    "discount": "8% على الأجهزة المنزلية",
+    "expiry": "2026-06-10",
+    "url": "https://example.com/coupons/extra",
+    "note": "لا يشمل التخفيضات القوية"
+  }
+]

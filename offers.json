@@ -1,0 +1,134 @@
+[
+  {
+    "id": 1,
+    "name": "لابتوب ASUS Vivobook 15",
+    "category": "لابتوب",
+    "store": "نون",
+    "priceBefore": 2699,
+    "priceAfter": 2199,
+    "rating": 4.5,
+    "reviews": 214,
+    "url": "https://example.com/store/asus-vivobook-15"
+  },
+  {
+    "id": 2,
+    "name": "هاتف Samsung Galaxy A55",
+    "category": "جوال",
+    "store": "أمازون السعودية",
+    "priceBefore": 1799,
+    "priceAfter": 1499,
+    "rating": 4.6,
+    "reviews": 582,
+    "url": "https://example.com/store/galaxy-a55"
+  },
+  {
+    "id": 3,
+    "name": "سماعات Sony WH-CH720N",
+    "category": "سماعات",
+    "store": "جرير",
+    "priceBefore": 699,
+    "priceAfter": 529,
+    "rating": 4.4,
+    "reviews": 166,
+    "url": "https://example.com/store/sony-wh-ch720n"
+  },
+  {
+    "id": 4,
+    "name": "مكنسة روبوت ذكية Xiaomi",
+    "category": "أجهزة منزلية",
+    "store": "إكسترا",
+    "priceBefore": 1299,
+    "priceAfter": 979,
+    "rating": 4.1,
+    "reviews": 98,
+    "url": "https://example.com/store/robot-vacuum"
+  },
+  {
+    "id": 5,
+    "name": "شاشة LG UltraWide 29 بوصة",
+    "category": "شاشات",
+    "store": "أمازون السعودية",
+    "priceBefore": 1199,
+    "priceAfter": 949,
+    "rating": 4.3,
+    "reviews": 143,
+    "url": "https://example.com/store/lg-ultrawide-29"
+  },
+  {
+    "id": 6,
+    "name": "كيبورد ميكانيكي Redragon K552",
+    "category": "ملحقات",
+    "store": "نون",
+    "priceBefore": 249,
+    "priceAfter": 179,
+    "rating": 4.2,
+    "reviews": 337,
+    "url": "https://example.com/store/redragon-k552"
+  },
+  {
+    "id": 7,
+    "name": "جهاز iPad الجيل العاشر",
+    "category": "أجهزة لوحية",
+    "store": "جرير",
+    "priceBefore": 1999,
+    "priceAfter": 1799,
+    "rating": 4.7,
+    "reviews": 201,
+    "url": "https://example.com/store/ipad-10"
+  },
+  {
+    "id": 8,
+    "name": "ساعة Huawei Watch GT",
+    "category": "ساعات ذكية",
+    "store": "نون",
+    "priceBefore": 899,
+    "priceAfter": 649,
+    "rating": 4.0,
+    "reviews": 91,
+    "url": "https://example.com/store/huawei-watch-gt"
+  },
+  {
+    "id": 9,
+    "name": "طابعة HP Smart Tank",
+    "category": "مكاتب",
+    "store": "إكسترا",
+    "priceBefore": 1099,
+    "priceAfter": 899,
+    "rating": 4.5,
+    "reviews": 128,
+    "url": "https://example.com/store/hp-smart-tank"
+  },
+  {
+    "id": 10,
+    "name": "ماكينة قهوة Delonghi",
+    "category": "أجهزة منزلية",
+    "store": "أمازون السعودية",
+    "priceBefore": 899,
+    "priceAfter": 719,
+    "rating": 4.6,
+    "reviews": 276,
+    "url": "https://example.com/store/delonghi-coffee"
+  },
+  {
+    "id": 11,
+    "name": "هاتف iPhone 15",
+    "category": "جوال",
+    "store": "جرير",
+    "priceBefore": 3699,
+    "priceAfter": 3349,
+    "rating": 4.8,
+    "reviews": 801,
+    "url": "https://example.com/store/iphone-15"
+  },
+  {
+    "id": 12,
+    "name": "راوتر TP-Link Wi-Fi 6",
+    "category": "شبكات",
+    "store": "نون",
+    "priceBefore": 349,
+    "priceAfter": 279,
+    "rating": 4.3,
+    "reviews": 188,
+    "url": "https://example.com/store/tplink-wifi6"
+  }
+]
