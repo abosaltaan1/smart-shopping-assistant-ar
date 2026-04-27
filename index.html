@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="مساعد التسوق الذكي - استعراض العروض، فلترة حسب السعر والتقييم، عرض القسائم، وتصدير CSV." />
+  <title>مساعد التسوق الذكي</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <section class="hero">
+      <h1>مساعد التسوق الذكي</h1>
+      <p>
+        أداة عربية تساعدك على استعراض العروض، مقارنة الأسعار، فلترة المنتجات حسب السعر والتقييم،
+        واستعراض القسائم المتاحة ثم تصدير النتائج إلى CSV.
+      </p>
+
+      <div class="grid" aria-label="أدوات البحث والتصفية">
+        <div class="field">
+          <label for="searchInput">المنتج / الفئة</label>
+          <input id="searchInput" type="text" placeholder="مثال: لابتوب، جوال، سماعات، أجهزة منزلية..." />
+        </div>
+
+        <div class="field">
+          <label for="ratingFilter">أدنى تقييم</label>
+          <select id="ratingFilter">
+            <option value="0">كل التقييمات</option>
+            <option value="3">3 نجوم فأكثر</option>
+            <option value="4">4 نجوم فأكثر</option>
+            <option value="4.5">4.5 نجوم فأكثر</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="maxPriceInput">أقصى سعر (ر.س)</label>
+          <input id="maxPriceInput" type="number" min="0" step="1" placeholder="مثال: 500" />
+        </div>
+
+        <div class="field">
+          <label for="storeFilter">المتجر</label>
+          <select id="storeFilter">
+            <option value="all">كل المتاجر</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="sortBy">ترتيب النتائج</label>
+          <select id="sortBy">
+            <option value="discountDesc">الأعلى خصمًا</option>
+            <option value="ratingDesc">الأعلى تقييمًا</option>
+            <option value="priceAsc">الأقل سعرًا</option>
+            <option value="priceDesc">الأعلى سعرًا</option>
+            <option value="reviewsDesc">الأكثر مراجعات</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <button class="btn-primary" id="fetchOffersBtn">جلب العروض</button>
+        <button class="btn-secondary" id="showCouponsBtn">القسائم</button>
+        <button class="btn-success" id="exportCsvBtn">تصدير CSV</button>
+        <button class="btn-light" id="resetBtn">إعادة ضبط</button>
+      </div>
+    </section>
+
+    <section class="stats" aria-label="إحصائيات النتائج">
+      <div class="stat-card">
+        <div class="stat-label">عدد النتائج</div>
+        <div class="stat-value" id="statCount">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">متوسط السعر بعد الخصم</div>
+        <div class="stat-value" id="statAvgPrice">0 ر.س</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">أفضل خصم متاح</div>
+        <div class="stat-value" id="statBestDiscount">0%</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">عدد القسائم المتاحة</div>
+        <div class="stat-value" id="statCoupons">0</div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <div>
+          <h2>العروض المتاحة</h2>
+          <div class="meta" id="resultsMeta">جارٍ تحميل البيانات...</div>
+        </div>
+        <div class="chip" id="activeFilterChip">لا توجد فلاتر نشطة</div>
+      </div>
+
+      <div class="table-wrap">
+        <div class="table-scroll">
+          <table aria-label="جدول العروض">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>المنتج</th>
+                <th>المتجر</th>
+                <th>السعر قبل</th>
+                <th>السعر بعد</th>
+                <th>الخصم</th>
+                <th>التقييم</th>
+                <th>المراجعات</th>
+                <th>رابط</th>
+              </tr>
+            </thead>
+            <tbody id="offersTableBody"></tbody>
+          </table>
+        </div>
+        <div class="empty-state" id="offersEmpty" style="display:none;">
+          لا توجد عروض مطابقة للبحث الحالي. جرّب تعديل الكلمات أو السعر أو التقييم.
+        </div>
+      </div>
+
+      <div class="footer-note" id="dataStatus">
+        مصدر البيانات: ملفات JSON خارجية، ما يجعل المشروع أقرب للبنية الحقيقية وأسهل في التوسّع والصيانة.
+      </div>
+    </section>
+  </div>
+
+  <div class="modal" id="couponsModal" aria-hidden="true">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>القسائم المتاحة</h3>
+        <button class="close-btn" id="closeCouponsBtn">إغلاق</button>
+      </div>
+      <div class="modal-body">
+        <div class="table-wrap">
+          <div class="table-scroll">
+            <table aria-label="جدول القسائم">
+              <thead>
+                <tr>
+                  <th>المتجر</th>
+                  <th>الكود</th>
+                  <th>الخصم</th>
+                  <th>ينتهي في</th>
+                  <th>الرابط</th>
+                  <th>ملاحظة</th>
+                </tr>
+              </thead>
+              <tbody id="couponsTableBody"></tbody>
+            </table>
+          </div>
+          <div class="empty-state" id="couponsEmpty" style="display:none;">
+            لا توجد قسائم متاحة لهذا البحث.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
